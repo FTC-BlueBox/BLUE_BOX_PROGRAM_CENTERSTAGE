@@ -61,7 +61,7 @@ public class OpModeV1 extends LinearOpMode {
     private DcMotor MOTOR4;
     private DcMotor MOTOR_LINEAR_RACK;
     private DcMotor MOTOR_INTAKE;
-    private Servo AIRPLANE_SERVO;
+    private Servo PLANE_SERVO;
 
     double  reduceSpeedFactor = 0.6;
     double intakeMotorPower = 0;
@@ -81,7 +81,7 @@ public class OpModeV1 extends LinearOpMode {
         MOTOR4 = hardwareMap.get(DcMotor.class, "MOTOR4");
         MOTOR_LINEAR_RACK  = hardwareMap.get(DcMotor.class, "LINEARRACK");
         MOTOR_INTAKE = hardwareMap.get(DcMotor.class, "INTAKE");
-        AIRPLANE_SERVO = hardwareMap.get(Servo.class, "AIRPLANE");
+        PLANE_SERVO = hardwareMap.get(Servo.class, "PLANE");
 
         MOTOR1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         MOTOR2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -158,7 +158,7 @@ public class OpModeV1 extends LinearOpMode {
 
             if (gamepad1.left_bumper) {                 //use linear rack
                 if (linearRackMotorPower == 0){
-                    linearRackMotorPower = 0.2;         //adjust
+                    linearRackMotorPower = 0.5;         //adjust
                 }
                 else{
                     linearRackMotorPower = 0;
@@ -175,7 +175,7 @@ public class OpModeV1 extends LinearOpMode {
                 MOTOR_INTAKE.setPower(intakeMotorPower);
             }
             if(gamepad1.b){
-                AIRPLANE_SERVO.setPosition(0.4); //untested
+                PLANE_SERVO.setPosition(0.4); //untested
             }
             //gamepad 2
 
